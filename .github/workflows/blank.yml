@@ -16,5 +16,4 @@ jobs:
         RDP_PASSWORD: Password
       run: ./configure.ps1
     - name: Creating tunnel with ngrok...
-      run: ./ngrok/ngrok update
       run: ./ngrok/ngrok tcp 3389
