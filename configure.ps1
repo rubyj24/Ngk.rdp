@@ -11,7 +11,6 @@ Expand-Archive -LiteralPath '.\ngrok.zip'
 
 # Set-up and save ngrok authtoken
 ./ngrok/ngrok.exe authtoken $env:NGROK_AUTH_TOKEN
-./ngrok/ngrok.exe ngrok update
 
 # Enabling RDP Access
 Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
