@@ -13,7 +13,7 @@ Expand-Archive -LiteralPath '.\ngrok.zip'
 ./ngrok/ngrok.exe authtoken $env:NGROK_AUTH_TOKEN
 
 # Enabling RDP Access
-Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
+# Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
 
 # Authorize RDP Service from firewall so we don't get a weird state
 Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
