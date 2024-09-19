@@ -19,5 +19,5 @@ Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-
 Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
 # Change password to the one we set-up as RDP_PASSWORD on our repo settings.
-Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
+Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "123" -Force)
 Exit
