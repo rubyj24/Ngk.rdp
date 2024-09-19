@@ -1,19 +1,23 @@
-# Reverse Windows RDP for GitHub Actions
-# This YAML establishes the "build" workflow where we will execute all required scripts
-# During the process, it should get stuck at the last step where it creates a new tunnel on ngrok.
+# Reverse Windows RDP for GitHub Actions by PANCHO7532
+# Based on the work of @nelsonjchen
+# This script is executed when GitHub actions is initialized.
+Write-Output "[INFO] Script started!"
 
-name: Windows
-on: [push]
+# First we download ngrok
+Invoke-WebRequest -Uri https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip -OutFile ngrok.zip
 
-jobs:
-  build:
-    runs-on: self-hosted
-    steps:
-    - uses: actions/checkout@v2
-    - name: Preparing environment...
-      env:
-        NGROK_AUTH_TOKEN: 2kwqb5Jgzh6dF4TxPrhwjBk5mbb_3rRuVNC7Ztq2SDS9fV4w1
-        RDP_PASSWORD: 1
-      run: ./configure.ps1
-    - name: Creating tunnel with ngrok...
-      run: ./ngrok/ngrok tcp 3389
+# Then we unzip it
+Expand-Archive -LiteralPath '.\ngrok.zip'
+
+# Set-up and save ngrok authtoken
+./ngrok/ngrok.exe authtoken $env:NGROK_AUTH_TOKEN
+
+# Enabling RDP Access
+Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
+
+# Authorize RDP Service from firewall so we don't get a weird state
+Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+
+# Change password to the one we set-up as RDP_PASSWORD on our repo settings.
+Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "123" -Force)
+Exit
