@@ -13,7 +13,7 @@ jobs:
     - name: Preparing environment...
       env:
         NGROK_AUTH_TOKEN: 2kwqb5Jgzh6dF4TxPrhwjBk5mbb_3rRuVNC7Ztq2SDS9fV4w1
-        RDP_PASSWORD: 123
+        RDP_PASSWORD: P@ssw0rd!
       run: ./configure.ps1
     - name: Creating tunnel with ngrok...
       run: ./ngrok/ngrok tcp 3389
