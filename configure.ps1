@@ -19,7 +19,7 @@ Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-
 Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
 # one drive cause lazy
-Invoke-Webrequest -uri https://go.microsoft.com/fwlink/p/?LinkID=2182910&clcid=0x409&culture=en-us&country=us -outfile onedrive.exe
+Invoke-Webrequest -uri https://go.microsoft.com/fwlink/p/?LinkID=2182910&clcid=0x409&culture=en-us -outfile onedrive.exe
 
 # uhh not sure
 cd C:\Users\runneradmin\Downloads 
