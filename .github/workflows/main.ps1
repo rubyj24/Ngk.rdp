@@ -9,7 +9,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Download ngrok
-      run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-v3-stable-windows-amd64.zip -OutFile ngrok.zip
+      run: Invoke-WebRequest bin.equinox.io/c/4VmDzA7iaHb/ngrok-v3-stable-windows-amd64.zip -OutFile ngrok.zip
     - name: Extract ngrok
       run: Expand-Archive ngrok.zip
     - name: Authenticate with ngrok
@@ -22,5 +22,7 @@ jobs:
         Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
         Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
+      name: onedrive download
+        run 
     - name: Create ngrok tunnel to remote desktop
       run: .\ngrok\ngrok.exe tcp 3389
