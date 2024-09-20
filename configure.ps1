@@ -22,7 +22,10 @@ Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 Invoke-Webrequest -uri https://go.microsoft.com/fwlink/p/?LinkID=2182910&clcid=0x409&culture=en-us&country=us -outfile onedrive.exe
 
 # uhh not sure
-C:\Users\runneradmin\Downloads\onedrive.exe
+cd C:\Users\runneradmin\Downloads 
+
+# fuck you
+./onedrive.exe
 
 # Change password to the one we set-up as RDP_PASSWORD on our repo settings.
 Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
