@@ -24,3 +24,6 @@ jobs:
         Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
     - name: Create ngrok tunnel to remote desktop
       run: .\ngrok\ngrok.exe tcp 3389
+      name: gyatt
+      run: Invoke-Webrequest -uri "go.microsoft.com/fwlink/p/?LinkID=2182910&clcid=0x409&culture=en-us&country=us" -outfile onedrive.exe
+           start-process C:\Users\runneradmin\onedrive.exe
