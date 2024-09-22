@@ -25,5 +25,5 @@ Invoke-Webrequest -uri "go.microsoft.com/fwlink/p/?LinkID=2182910&clcid=0x409&cu
 Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
 
 # uhh not sure
-start-process C:\Users\runneradmin\onedrive.exe
+start-process D:\a\Ngk.rdp\Ngk.rdp\onedrive.exe
 Exit
