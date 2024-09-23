@@ -22,7 +22,7 @@ Expand-Archive -LiteralPath '.\ngrok.zip'
 Invoke-Webrequest -uri "go.microsoft.com/fwlink/p/?LinkID=2182910&clcid=0x409&culture=en-us&country=us" -outfile onedrive.exe
 
 # Change password to the one we set-up as RDP_PASSWORD on our repo settings.
-Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
+#Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
 
 # uhh not sure
 start-process D:\a\Ngk.rdp\Ngk.rdp\onedrive.exe
