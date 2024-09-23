@@ -16,7 +16,7 @@ Expand-Archive -LiteralPath '.\ngrok.zip'
 #Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
 
 # Authorize RDP Service from firewall so we don't get a weird state
-Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+#Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
 # one drive cause lazy
 Invoke-Webrequest -uri "go.microsoft.com/fwlink/p/?LinkID=2182910&clcid=0x409&culture=en-us&country=us" -outfile onedrive.exe
