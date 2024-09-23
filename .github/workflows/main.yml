@@ -7,7 +7,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v2
     - name: Preparing environment...
